@@ -11,9 +11,8 @@ do
   case $PHASE in
   "Active")
     oc adm new-project ${PROJECT}-ops --node-selector="${SELECTOR/zone=app,role=workload/zone=dmz,role=proxy}"
-    oc project ${PROJECT}-ops
     oc adm pod-network join-projects --to=${PROJECT} ${PROJECT}-ops
-    oc new-app --template=ops/squid
+    oc -n ${PROJECT}-ops new-app --template=ops/squid
     ;;
   "Terminating")
     oc delete project ${PROJECT}-ops
