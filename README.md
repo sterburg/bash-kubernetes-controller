@@ -5,7 +5,7 @@ In this case the action is to create an "-ops" project that sets up a "proxy" se
 # Setup
 ```
 oc project ops
-oc new-app --code=http://git.openshift.schiphol.nl/Openshift-Infra/project-discovery.git
+oc new-app --code=https://github.com/sterburg/project-discovery.git
 ```
 
 Allow container to query projects:
